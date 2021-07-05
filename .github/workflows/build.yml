@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_css:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - name: Compile css
+        uses: gha-utilities/sass-build@v0.4.3
+        with:
+          source: public/style.scss
+          destination: public/style.css
+
+      - name: Commit changes
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git rm -rf public/style.scss
+          git add . --force
+          git commit -m 'updated gh-pages'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          force: true
