@@ -128,7 +128,7 @@ div.main {
           margin: 0 10px 0 0;
 
           width: 50px;
-          border: rgba(gray, 0.1) solid 5px;
+          border: rgba(black, 0.1) solid 3px;
           border-radius: 50%;
 
           animation: spin 10s linear infinite;
@@ -139,13 +139,28 @@ div.main {
 }
 
 footer {
+  display: flex;
+
+  justify-content: center;
+
   height: 20px;
 
   margin: 5px 0 0 0;
+  padding: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
   background-color: rgba($bestColor, 0.1);
+
+  img {
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:hover {
+      transform: rotate(20deg);
+    }
+  }
 }
 
 @keyframes blink {
