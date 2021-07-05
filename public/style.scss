@@ -101,7 +101,7 @@ div.main {
         width: 156px;
 
         border-radius: 50%;
-        border: var(--status-color) solid;
+        border: var(--status-color) solid 3px;
       }
     }
 
@@ -128,7 +128,7 @@ div.main {
           margin: 0 10px 0 0;
 
           width: 50px;
-          border: rgba(gray, 0.1) solid;
+          border: rgba(gray, 0.1) solid 5px;
           border-radius: 50%;
 
           animation: spin 10s linear infinite;
