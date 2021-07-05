@@ -32,7 +32,7 @@ socket.addEventListener("message", ({ data }) => {
   const { t: type, d: lanyard } = JSON.parse(data);
 
   if (type === "INIT_STATE" || type === "PRESENCE_UPDATE") {
-    const { spotify, discord_user, discord_status } = lanyard;
+    const { spotify, discord_user, discord_status, activities } = lanyard;
 
     elements.avatar.src = `https://cdn.discordapp.com/avatars/${discord_user.id}/${discord_user.avatar}.png?size=1024`;
     elements.username.innerHTML = `${discord_user.username}#${discord_user.discriminator}`;
@@ -83,6 +83,9 @@ socket.addEventListener("message", ({ data }) => {
         `window.open('https://open.spotify.com/track/${spotify.track_id}', '_blank')`
       );
       elements.status.albumCover.style.display = "block";
+    } else {
+      elements.status.albumCover.style.display = "none";
+      elements.status.statusName.innerHTML = `Playing ${activities.pop().name}`;
     }
   }
 });
