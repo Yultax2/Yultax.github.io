@@ -94,15 +94,13 @@ div.main {
 
     background-color: rgba($bestColor, 0.1);
 
-    div.avatar {
+    img {
       margin: 0 10px 0 0;
 
-      img {
-        width: 156px;
+      width: 156px;
 
-        border-radius: 50%;
-        border: var(--status-color) solid 3px;
-      }
+      border-radius: 50%;
+      border: var(--status-color) solid 3px;
     }
 
     div.others {

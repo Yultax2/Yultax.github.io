@@ -2,7 +2,7 @@ const socket = new WebSocket("wss://api.lanyard.rest/socket?compression=zlib");
 
 const elements = {
   username: document.querySelector("div.others > h2"),
-  avatar: document.querySelector("div.avatar > img"),
+  avatar: document.querySelector("div.card > img"),
   status: {
     statusName: document.querySelector("div.others > div > p"),
     albumCover: document.querySelector("div.others > div > img"),
