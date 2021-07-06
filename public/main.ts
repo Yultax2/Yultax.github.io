@@ -3,10 +3,7 @@ const otherElements = {
   "i-love": document.querySelector(".i-love > .badges") as HTMLDivElement,
 };
 
-const badges: {
-  languages: { [x: string]: any };
-  others: { [x: string]: any };
-} = {
+const badges = {
   languages: [
     {
       name: "JavaScript",
@@ -39,6 +36,7 @@ const badges: {
     {
       name: "Linux",
       color: "#FCC624",
+      textColor: "black",
     },
     {
       name: "GNU/Linux",
