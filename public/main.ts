@@ -1,9 +1,12 @@
 const otherElements = {
-  "i-know": document.querySelector(".i-know > .badges"),
-  "i-love": document.querySelector(".i-love > .badges"),
+  "i-know": document.querySelector(".i-know > .badges") as HTMLDivElement,
+  "i-love": document.querySelector(".i-love > .badges") as HTMLDivElement,
 };
 
-const badges = {
+const badges: {
+  languages: { [x: string]: any };
+  others: { [x: string]: any };
+} = {
   languages: [
     {
       name: "JavaScript",

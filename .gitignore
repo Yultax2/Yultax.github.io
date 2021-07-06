@@ -1,5 +1,5 @@
 # Folders
 .vscode/
-
-# Files
-*.css*
+node_modules/
+public/style/
+public/js/

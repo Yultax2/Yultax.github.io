@@ -1,4 +1,4 @@
-name: Compile CSS and Push to gh-pages Branch
+name: Build and Push to Branch
 
 on:
   push:
@@ -16,17 +16,24 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
 
-      - name: Compile css
-        uses: gha-utilities/sass-build@v0.4.3
+      - name: Install nodejs
+        uses: actions/setup-node@v2
         with:
-          source: public/style.scss
-          destination: public/style.css
+          node-version: "14.x"
+
+      - name: Install npm modules
+        run: |
+          npm i
+
+      - name: Build scss and ts files
+        run: |
+          npm run build:all
 
       - name: Commit changes
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git rm -rf public/style.scss
+          git rm -rf public/style.scss public/*.ts
           git add . --force
           git commit -m 'updated gh-pages'
 

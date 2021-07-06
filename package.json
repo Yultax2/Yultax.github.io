@@ -1,0 +1,28 @@
+{
+  "name": "iamtuhana.github.io",
+  "version": "1.0.0",
+  "description": "My personal website.",
+  "private": true,
+  "scripts": {
+    "build:scss": "sass --no-source-map public/style.scss public/style/style.css",
+    "build:ts": "tsc",
+    "build:all": "sass --no-source-map public/style.scss public/style/style.css && tsc",
+    "watch:scss": "sass --no-source-map --watch public/style.scss public/style/style.css",
+    "watch:ts": "tsc -w",
+    "watch:all": "sass --no-source-map --watch public/style.scss public/style/style.css && tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamtuhana/iamtuhana.github.io.git"
+  },
+  "author": "Tuhana GAYRETLİ <iamtuhana@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamtuhana/iamtuhana.github.io/issues"
+  },
+  "homepage": "https://github.com/iamtuhana/iamtuhana.github.io#readme",
+  "devDependencies": {
+    "sass": "^1.35.1",
+    "typescript": "^4.3.5"
+  }
+}
