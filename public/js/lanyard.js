@@ -1,6 +1,6 @@
 const socket = new WebSocket("wss://api.lanyard.rest/socket?compression=zlib");
 
-const elements = {
+const cardElements = {
   username: document.querySelector("div.others > h2"),
   avatar: document.querySelector("div.card > img"),
   status: {
@@ -34,8 +34,8 @@ socket.addEventListener("message", ({ data }) => {
   if (type === "INIT_STATE" || type === "PRESENCE_UPDATE") {
     const { spotify, discord_user, discord_status, activities } = lanyard;
 
-    elements.avatar.src = `https://cdn.discordapp.com/avatars/${discord_user.id}/${discord_user.avatar}.png?size=1024`;
-    elements.username.innerHTML = `${discord_user.username}#${discord_user.discriminator}`;
+    cardElements.avatar.src = `https://cdn.discordapp.com/avatars/${discord_user.id}/${discord_user.avatar}.png?size=1024`;
+    cardElements.username.innerHTML = `${discord_user.username}#${discord_user.discriminator}`;
 
     switch (discord_status) {
       case "online":
@@ -49,8 +49,8 @@ socket.addEventListener("message", ({ data }) => {
         break;
       default:
         document.documentElement.style.setProperty("--status-color", "#757e8a");
-        elements.status.statusName.innerHTML = "offline";
-        elements.status.albumCover.style.display = "none";
+        cardElements.status.statusName.innerHTML = "offline";
+        cardElements.status.albumCover.style.display = "none";
         break;
     }
 
@@ -71,24 +71,26 @@ socket.addEventListener("message", ({ data }) => {
             `<a href="https://open.spotify.com/search/${spotify.artist}" target="_blank">${spotify.artist}</a>`
           );
 
-      elements.status.statusName.innerHTML = `
+      cardElements.status.statusName.innerHTML = `
         Listening to <a href="https://open.spotify.com/track/${
           spotify.track_id
         }" target="_blank">${spotify.song}</a> by ${songBy.join(", ")}</a>
       `;
-      elements.status.albumCover.src = spotify.album_art_url;
-      elements.status.albumCover.title = spotify.album;
-      elements.status.albumCover.setAttribute(
+      cardElements.status.albumCover.src = spotify.album_art_url;
+      cardElements.status.albumCover.title = spotify.album;
+      cardElements.status.albumCover.setAttribute(
         "onclick",
         `window.open('https://open.spotify.com/track/${spotify.track_id}', '_blank')`
       );
-      elements.status.albumCover.style.display = "block";
+      cardElements.status.albumCover.style.display = "block";
     } else if (activities.length) {
-      elements.status.albumCover.style.display = "none";
-      elements.status.statusName.innerHTML = `Playing ${activities.pop().name}`;
+      cardElements.status.albumCover.style.display = "none";
+      cardElements.status.statusName.innerHTML = `Playing ${
+        activities.pop().name
+      }`;
     } else {
-      elements.status.albumCover.style.display = "none";
-      elements.status.statusName.innerHTML = `doing nothing`;
+      cardElements.status.albumCover.style.display = "none";
+      cardElements.status.statusName.innerHTML = `doing nothing`;
     }
   }
 });
