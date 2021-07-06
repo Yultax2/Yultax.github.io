@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git rm -rf public/style.scss public/*.ts *.json
+          git rm -rf public/style.scss public/*.ts .github/ *.json
           git add public/style/ public/js/ --force
           git commit -m 'updated gh-pages'
 
