@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build_css:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +34,7 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git rm -rf public/style.scss public/*.ts
-          git add . --force
+          git add public/style/ public/js/ --force
           git commit -m 'updated gh-pages'
 
       - name: Push changes
