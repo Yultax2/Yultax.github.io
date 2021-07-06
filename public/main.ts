@@ -76,6 +76,7 @@ for (let i = 0; i < badges.languages.length; i++) {
 
   img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
   img.width = 16;
+  img.height = 16;
 
   div.className = el?.filename || el.name.toLowerCase();
   div.style.backgroundColor = el.color;
@@ -99,6 +100,7 @@ for (let i = 0; i < badges.others.length; i++) {
 
   img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
   img.width = 16;
+  img.height = 16;
 
   div.className = el?.filename || el.name.toLowerCase();
   div.style.backgroundColor = el.color;
