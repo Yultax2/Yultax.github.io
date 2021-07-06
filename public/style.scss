@@ -87,6 +87,10 @@ div.main {
   padding: 5px;
   background-color: rgba($bestColor, 0.1);
 
+  div.me {
+    text-align: center;
+  }
+
   div.card {
     display: flex;
     flex-wrap: wrap;
@@ -112,6 +116,7 @@ div.main {
         display: flex;
 
         align-items: center;
+        justify-content: center;
 
         max-width: 300px;
 
@@ -150,12 +155,19 @@ div.main {
         align-items: center;
 
         margin: 0 5px 5px 5px;
-        padding: 0 5px 0 0;
+        padding: 5px;
+
+        background-color: rgba($bestColor, 0.25);
+
+        &:hover {
+          img {
+            transform: rotate(10deg);
+          }
+        }
 
         img {
-          background-color: #111111;
-          padding: 5px;
-          margin: 0 5px 0 0;
+          transition: 0.25s;
+          padding: 5px 5px 5px 0;
         }
       }
     }

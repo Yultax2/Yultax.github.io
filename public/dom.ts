@@ -15,6 +15,10 @@ const badges = {
       color: "#3178C6",
     },
     {
+      name: "Deno",
+      color: "#FFFFFF",
+    },
+    {
       name: "Python",
       color: "#3776AB",
     },
@@ -28,7 +32,7 @@ const badges = {
     },
     {
       name: "Bash Script",
-      filename: "bash",
+      fileName: "bash",
       color: "#4EAA25",
     },
   ],
@@ -36,21 +40,37 @@ const badges = {
     {
       name: "Linux",
       color: "#FCC624",
-      textColor: "black",
     },
     {
       name: "GNU/Linux",
-      filename: "gnu",
+      fileName: "gnu",
       color: "#A42E2B",
     },
     {
       name: "Arch Linux",
-      filename: "archlinux",
+      fileName: "archlinux",
       color: "#1793D1",
+    },
+    {
+      name: "GNOME",
+      color: "#4A86CF",
+    },
+    {
+      name: "Git",
+      color: "#F05032",
     },
     {
       name: "Android",
       color: "#3DDC84",
+    },
+    {
+      name: "Vim",
+      color: "#019733",
+    },
+    {
+      name: "Visual Studio Code",
+      fileName: "visualstudiocode",
+      color: "#007ACC",
     },
     {
       name: "Firefox",
@@ -58,7 +78,7 @@ const badges = {
     },
     {
       name: "Osu!",
-      filename: "osu",
+      fileName: "osu",
       color: "#FF66AA",
     },
   ],
@@ -72,15 +92,12 @@ for (let i = 0; i < badges.languages.length; i++) {
     img = document.createElement("img");
 
   p.innerHTML = el.name;
-  p.style.color = el?.textColor;
 
-  img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
-  img.width = 16;
-  img.height = 16;
+  img.src = `./public/img/svg/${el?.fileName || el.name.toLowerCase()}.svg`;
+  img.width = 20;
+  img.height = 20;
 
-  div.className = el?.filename || el.name.toLowerCase();
-  div.style.backgroundColor = el.color;
-  div.style.color = el?.textColor;
+  div.className = el?.fileName || el.name.toLowerCase();
 
   div.appendChild(img);
   div.appendChild(p);
@@ -96,15 +113,12 @@ for (let i = 0; i < badges.others.length; i++) {
     img = document.createElement("img");
 
   p.innerHTML = el.name;
-  p.style.color = el?.textColor;
 
-  img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
-  img.width = 16;
-  img.height = 16;
+  img.src = `./public/img/svg/${el?.fileName || el.name.toLowerCase()}.svg`;
+  img.width = 20;
+  img.height = 20;
 
-  div.className = el?.filename || el.name.toLowerCase();
-  div.style.backgroundColor = el.color;
-  div.style.color = el?.textColor;
+  div.className = el?.fileName || el.name.toLowerCase();
 
   div.appendChild(img);
   div.appendChild(p);
