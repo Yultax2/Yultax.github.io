@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "build:scss": "sass --no-source-map --style=compressed public/style.scss public/style/style.css",
-    "build:ts": "tsc",
-    "build:all": "sass --no-source-map --style=compressed public/style.scss public/style/style.css && tsc",
-    "watch:scss": "sass --no-source-map --style=compressed --watch public/style.scss public/style/style.css",
+    "build:ts": "tsc && uglifyjs public/js/main.js -o public/js/main.js -c -m",
+    "build:all": "sass --no-source-map --style=compressed public/style.scss public/style/style.css && tsc && uglifyjs public/js/main.js -o public/js/main.js -c -m",
+    "watch:scss": "sass --no-source-map --watch public/style.scss public/style/style.css",
     "watch:ts": "tsc -w"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/iamtuhana/iamtuhana.github.io#readme",
   "devDependencies": {
     "sass": "^1.35.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.13.10"
   }
 }

@@ -2,6 +2,6 @@
   "include": ["public/*.ts"],
   "compilerOptions": {
     "target": "ES5",
-    "outDir": "public/js"
+    "outFile": "public/js/main.js"
   }
 }
