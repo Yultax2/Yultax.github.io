@@ -75,8 +75,9 @@ for (let i = 0; i < badges.languages.length; i++) {
   p.style.color = el?.textColor;
 
   img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
+  img.width = 16;
 
-  div.className = el.name.toLowerCase();
+  div.className = el?.filename || el.name.toLowerCase();
   div.style.backgroundColor = el.color;
   div.style.color = el?.textColor;
 
@@ -97,8 +98,9 @@ for (let i = 0; i < badges.others.length; i++) {
   p.style.color = el?.textColor;
 
   img.src = `./public/img/svg/${el?.filename || el.name.toLowerCase()}.svg`;
+  img.width = 16;
 
-  div.className = el.name.toLowerCase();
+  div.className = el?.filename || el.name.toLowerCase();
   div.style.backgroundColor = el.color;
   div.style.color = el?.textColor;
 
