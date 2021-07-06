@@ -83,9 +83,12 @@ socket.addEventListener("message", ({ data }) => {
         `window.open('https://open.spotify.com/track/${spotify.track_id}', '_blank')`
       );
       elements.status.albumCover.style.display = "block";
-    } else {
+    } else if (activities.length) {
       elements.status.albumCover.style.display = "none";
       elements.status.statusName.innerHTML = `Playing ${activities.pop().name}`;
+    } else {
+      elements.status.albumCover.style.display = "none";
+      elements.status.statusName.innerHTML = `doing nothing`;
     }
   }
 });
