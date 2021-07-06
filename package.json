@@ -4,12 +4,11 @@
   "description": "My personal website.",
   "private": true,
   "scripts": {
-    "build:scss": "sass --no-source-map public/style.scss public/style/style.css",
+    "build:scss": "sass --no-source-map --style=compressed public/style.scss public/style/style.css",
     "build:ts": "tsc",
-    "build:all": "sass --no-source-map public/style.scss public/style/style.css && tsc",
-    "watch:scss": "sass --no-source-map --watch public/style.scss public/style/style.css",
-    "watch:ts": "tsc -w",
-    "watch:all": "sass --no-source-map --watch public/style.scss public/style/style.css && tsc -w"
+    "build:all": "sass --no-source-map --style=compressed public/style.scss public/style/style.css && tsc",
+    "watch:scss": "sass --no-source-map --style=compressed --watch public/style.scss public/style/style.css",
+    "watch:ts": "tsc -w"
   },
   "repository": {
     "type": "git",
