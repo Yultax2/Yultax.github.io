@@ -1,28 +1,28 @@
 {
   "name": "iamtuhana.github.io",
   "version": "1.0.0",
-  "description": "My personal website.",
   "private": true,
   "scripts": {
-    "build:scss": "sass --no-source-map --style=compressed public/style.scss public/style/style.css",
-    "build:ts": "tsc && uglifyjs public/js/main.js -o public/js/main.js -c -m",
-    "build:all": "sass --no-source-map --style=compressed public/style.scss public/style/style.css && tsc && uglifyjs public/js/main.js -o public/js/main.js -c -m",
-    "watch:scss": "sass --no-source-map --watch public/style.scss public/style/style.css",
-    "watch:ts": "tsc -w"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iamtuhana/iamtuhana.github.io.git"
-  },
-  "author": "Tuhana GAYRETLİ <iamtuhana@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/iamtuhana/iamtuhana.github.io/issues"
-  },
-  "homepage": "https://github.com/iamtuhana/iamtuhana.github.io#readme",
   "devDependencies": {
-    "sass": "^1.35.1",
-    "typescript": "^4.3.5",
-    "uglify-js": "^3.13.10"
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@tsconfig/svelte": "^2.0.1",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.35.2",
+    "svelte-preprocess": "^4.7.3",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "sirv-cli": "^1.0.12"
   }
 }
