@@ -1,3 +1,44 @@
+interface LanyardData {
+  spotify: {
+    track_id: string;
+    timestamps: { start: number; end?: number };
+    song: string;
+    artist: string;
+    album_art_url: string;
+    album: string;
+  } | null;
+  discord_user: {
+    username: string;
+    public_flags?: number;
+    id: string;
+    discriminator: string;
+    avatar: string | null;
+  };
+  discord_status: "online" | "dnd" | "offline" | "idle";
+  activities: {
+    type: number;
+    state: string;
+    name: string;
+    id: string;
+    emoji?: { name: string; id: string; animated: boolean };
+    created_at: number;
+    application_id?: string;
+    timestamps?: { start: number; end?: number };
+    session_id?: string;
+    details?: string;
+    buttons?: string[];
+    assets?: {
+      small_text: string;
+      small_image: string;
+      large_text: string;
+      large_image: string;
+    };
+  }[];
+  listening_to_spotify: boolean;
+  active_on_discord_mobile: boolean;
+  active_on_discord_desktop: boolean;
+}
+
 const socket = new WebSocket("wss://api.lanyard.rest/socket?compression=zlib");
 
 const cardElements = {
@@ -33,10 +74,16 @@ socket.addEventListener("open", () => {
 });
 
 socket.addEventListener("message", ({ data }) => {
-  const { t: type, d: lanyard } = JSON.parse(data);
+  const {
+    t: type,
+    d: lanyard,
+  }: { t: "INIT_STATE" | "PRESENCE_UPDATE"; d: LanyardData } = JSON.parse(data);
 
   if (type === "INIT_STATE" || type === "PRESENCE_UPDATE") {
-    const { spotify, discord_user, discord_status, activities } = lanyard;
+    const { spotify, discord_user, discord_status } = lanyard;
+    const activities = lanyard.activities?.filter(
+      (activity) => activity.type !== 4
+    );
 
     cardElements.avatar.src = `https://cdn.discordapp.com/avatars/${discord_user.id}/${discord_user.avatar}.png?size=1024`;
     cardElements.username.innerHTML = `${discord_user.username}#${discord_user.discriminator}`;
@@ -89,7 +136,7 @@ socket.addEventListener("message", ({ data }) => {
       cardElements.status.albumCover.style.display = "block";
     } else if (activities.length) {
       cardElements.status.albumCover.style.display = "none";
-      cardElements.status.statusName.innerHTML = `Playing ${
+      cardElements.status.statusName.innerHTML = `playing ${
         activities.pop().name
       }`;
     } else {
