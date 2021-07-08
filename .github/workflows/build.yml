@@ -1,0 +1,45 @@
+name: Build and Push to Branch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - name: Install nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+
+      - name: Install npm modules
+        run: |
+          npm i
+
+      - name: Build scss and ts files
+        run: |
+          npm run build:all
+
+      - name: Commit changes
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git rm -rf public/style.scss public/*.ts .github/ *.json
+          git add public/style/ public/js/ --force
+          git commit -m 'updated gh-pages'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          force: true
