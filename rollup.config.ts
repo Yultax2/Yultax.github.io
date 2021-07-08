@@ -20,12 +20,10 @@ export default {
   },
   plugins: [
     svelte({
+      preprocess: preprocess({ sourceMap: !production }),
       compilerOptions: {
         dev: !production,
       },
-    }),
-    preprocess({
-      sourceMap: !production,
     }),
     resolve({
       browser: true,
