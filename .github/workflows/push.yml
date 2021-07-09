@@ -1,0 +1,41 @@
+name: Build and Push to Branch
+
+on:
+  push:
+    branches:
+      - main
+      - svelte
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - name: Install nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+
+      - name: Install npm modules
+        run: |
+          npm i
+      - name: Build code
+        run: |
+          npm run build
+      - name: Commit changes
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git rm -rf .vscode/ .github/ src/ node_modules/ *.ts *.json .gitignore
+          mv public/* ../
+          git add .
+          git commit -m 'updated gh-pages'
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          force: true
