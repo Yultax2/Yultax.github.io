@@ -1,15 +1,16 @@
+:root {
+  --color: 180, 122, 255;
+}
+
 * {
   color: white;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   padding: 0;
   margin: 0;
 }
 
 a {
-  color: rgba(180, 122, 255, 0.75);
+  color: var(--color);
   text-decoration: underline;
 }
 
@@ -20,8 +21,8 @@ h2 {
 
 hr {
   margin: 10px 0 10px 0;
-  border-top: 1px dashed #b47aff;
-  border-bottom: 1px dashed #b47aff;
+  border-top: 1px dashed var(--color);
+  border-bottom: 1px dashed var(--color);
 }
 
 body {

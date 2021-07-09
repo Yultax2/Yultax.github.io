@@ -1,10 +1,17 @@
 export default {
-  id: "852582281112715284",
+  user: {
+    color: "#b47aff",
+    username: "iamtuhana",
+    discordId: "852582281112715284",
+  },
   me: {
     header: "Welcome to my website! I'm Tuhana.",
     description:
       "I'm 17 years old developer from Turkey. I love cats sooooooo much 🐱🥰",
+    metaDescription:
+      "Welcome to my website! I'm Tuhana. I'm 17 years old developer from Turkey.",
   },
+  sourceURL: "htps://github.com/iamtuhana/iamtuhana.github.io",
   badges: {
     languages: [
       {

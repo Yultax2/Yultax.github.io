@@ -1,7 +1,6 @@
 import svelte from "rollup-plugin-svelte";
 import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-css-only";
-import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
 import serve from "rollup-plugin-serve";
@@ -20,7 +19,9 @@ export default {
   },
   plugins: [
     svelte({
-      preprocess: preprocess({ sourceMap: !production }),
+      preprocess: preprocess({
+        sourceMap: !production,
+      }),
       compilerOptions: {
         dev: !production,
       },
@@ -36,7 +37,6 @@ export default {
     css({
       output: "bundle.css",
     }),
-    json(),
     !production && serve("public"),
     !production && livereload("public"),
     production && terser(),
