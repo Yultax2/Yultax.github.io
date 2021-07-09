@@ -10,12 +10,12 @@
 }
 
 a {
-  color: var(--color);
+  color: rgb(var(--color));
   text-decoration: underline;
 }
 
 h2 {
-  margin: 0 0 5px 0;
+  margin: 5px 0 5px 0;
   text-align: center;
 }
 

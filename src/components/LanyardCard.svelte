@@ -1,19 +1,55 @@
-<div class="card">
-  <img
-    src="./img/defaultAvatar.png"
-    alt="Avatar"
-    width="156px"
-    height="156px"
-  />
-  <div class="others">
-    <h2>username#0000</h2>
-    <hr />
-    <div class="status">
-      <img src="./img/defaultAvatar.png" alt="Album Cover" />
-      <p>doing nothing</p>
+<script lang="ts">
+  import type { LanyardData } from "../@types/types";
+
+  import { onMount } from "svelte";
+  import lanyard from "../lanyard";
+  let lanyardData: LanyardData;
+
+  onMount(() => {
+    lanyard.subscribe((msg) => {
+      lanyardData = msg;
+    });
+  });
+</script>
+
+{#if lanyardData}
+  <div class="card">
+    <img
+      src={`https://cdn.discordapp.com/avatars/${lanyardData.discord_user.id}/${lanyardData.discord_user.avatar}.png?size=1024`}
+      alt="Avatar"
+      width="156px"
+      height="156px"
+    />
+    <div class="others">
+      <h2>
+        {`${lanyardData.discord_user.username}#${lanyardData.discord_user.discriminator}`}
+      </h2>
+      <hr />
+      <div class="status">
+        {#if lanyardData.spotify}
+          <img src={lanyardData.spotify.album_art_url} alt="Album Cover" />
+          <p>
+            listening to <a
+              href="https://open.spotify.com/track/{lanyardData.spotify
+                .track_id}">{lanyardData.spotify.song}</a
+            >
+            by {lanyardData.spotify.artist}
+          </p>
+        {:else}
+          <p>
+            playing {lanyardData.activities
+              .filter((activity) => activity.type !== 4)
+              .pop().name}
+          </p>
+        {/if}
+      </div>
     </div>
   </div>
-</div>
+{:else}
+  <div class="card">
+    <h2>Loading lanyard...</h2>
+  </div>
+{/if}
 
 <style lang="scss">
   div.card {
@@ -45,7 +81,6 @@
         max-width: 300px;
 
         img {
-          display: none;
           cursor: pointer;
           margin: 0 10px 0 0;
           width: 50px;

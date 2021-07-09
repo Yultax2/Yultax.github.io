@@ -15,7 +15,7 @@
     languages: { name: string; fileName?: string }[];
     others: { name: string; fileName?: string }[];
   };
-  export let footer: { name: string; flneName?: string; url: string }[];
+  export let footer: { name: string; fileName?: string; url: string }[];
   export let sourceURL: string;
 </script>
 
@@ -65,11 +65,6 @@
   <meta property="og:description" content={me.metaDescription} />
   <meta name="description" content={me.metaDescription} />
 
-  <meta
-    property="og:image"
-    content="https://iamtuhana.github.io/img/favicon.png"
-  />
-
   <meta name="theme-color" content={user.color} />
   <!-- Meta Tags End -->
 </svelte:head>
@@ -78,7 +73,7 @@
   div.container {
     margin: 5px 200px 5px 200px;
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1024px) {
       margin: 5px;
     }
   }
