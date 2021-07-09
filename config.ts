@@ -11,7 +11,7 @@ export default {
     metaDescription:
       "Welcome to my website! I'm Tuhana. I'm 17 years old developer from Turkey.",
   },
-  sourceURL: "htps://github.com/iamtuhana/iamtuhana.github.io",
+  sourceURL: "https://github.com/iamtuhana/iamtuhana.github.io",
   badges: {
     languages: [
       {
