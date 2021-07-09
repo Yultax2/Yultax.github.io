@@ -1,17 +1,13 @@
 # My Personal Website
 
-My first personal website made with using [Scss](https://sass-lang.com/).
+My personal website made with [Svelte](https://svelte.dev).
 
 SVG's were downloaded and used from [simpleicons.org](https://simpleicons.org). I just changed the colors and optimized it with 3rd party tools.
 
-## Build Yourself
+## How can i use it?
 
-Requirements:
+Edit the [config.ts](config.ts) file according to you.
 
-- [NodeJS](https://nodejs.org/en/)
-  - [Sass](https://www.npmjs.com/package/sass) Library (for building scss)
-  - [TypeScript](https://www.npmjs.com/package/typescript) Library (for building ts)
-
-[Scripts](package.json#L6)
+Build with `npm run build` command.
 
 ### [LICENSE](LICENSE)

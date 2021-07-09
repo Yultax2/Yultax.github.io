@@ -1,13 +1,15 @@
 <script lang="ts">
+  export let id: string;
+
   import type { LanyardData } from "../@types/types";
 
   import { onMount } from "svelte";
-  import lanyard from "../lanyard";
+  import { initLanyard } from "../lanyard";
   let lanyardData: LanyardData;
 
   onMount(() => {
-    lanyard.subscribe((msg) => {
-      lanyardData = msg;
+    initLanyard(id).then((subs) => {
+      subs.subscribe((msg) => (lanyardData = msg));
     });
   });
 </script>

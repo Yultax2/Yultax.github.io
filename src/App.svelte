@@ -29,7 +29,7 @@
         <p>{me.description}</p>
       </div>
       <hr />
-      <LanyardCard />
+      <LanyardCard id={user.discordId} />
       <hr />
       <div class="i-know">
         <h2>I Know</h2>

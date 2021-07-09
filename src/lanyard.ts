@@ -2,39 +2,39 @@
 import type { LanyardData } from "./@types/types";
 import { writable, Writable } from "svelte/store";
 
-const storeData = writable() as Writable<LanyardData>;
+const storeData = writable() as Writable<LanyardData>,
+  socket = new WebSocket("wss://api.lanyard.rest/socket");
 
-const socket = new WebSocket("wss://api.lanyard.rest/socket");
-
-socket.addEventListener("open", () => {
-  socket.send(
-    JSON.stringify({
-      op: 2,
-      d: {
-        subscribe_to_id: "852582281112715284",
-      },
-    })
-  );
-
-  setInterval(() => {
+export const initLanyard = (id: string) => {
+  socket.addEventListener("open", () => {
     socket.send(
       JSON.stringify({
-        op: 3,
+        op: 2,
+        d: {
+          subscribe_to_id: id,
+        },
       })
     );
-  }, 30000);
-});
 
-socket.addEventListener("message", ({ data }) => {
-  const {
-    t: type,
-    d: lanyard,
-  }: { t: "INIT_STATE" | "PRESENCE_UPDATE"; d: LanyardData } = JSON.parse(data);
+    setInterval(() => {
+      socket.send(
+        JSON.stringify({
+          op: 3,
+        })
+      );
+    }, 30000);
+  });
 
-  if (type === "INIT_STATE" || type === "PRESENCE_UPDATE")
-    storeData.set(lanyard);
-});
+  socket.addEventListener("message", ({ data }) => {
+    const {
+      t: type,
+      d: lanyard,
+    }: { t: "INIT_STATE" | "PRESENCE_UPDATE"; d: LanyardData } =
+      JSON.parse(data);
 
-export default {
-  subscribe: storeData.subscribe,
+    if (type === "INIT_STATE" || type === "PRESENCE_UPDATE")
+      storeData.set(lanyard);
+  });
+
+  return Promise.resolve(storeData);
 };
