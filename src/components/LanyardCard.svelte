@@ -29,7 +29,11 @@
       <hr />
       <div class="status">
         {#if lanyardData.spotify}
-          <img src={lanyardData.spotify.album_art_url} alt="Album Cover" />
+          <img
+            src={lanyardData.spotify.album_art_url}
+            alt="Album Cover"
+            title={lanyardData.spotify.album}
+          />
           <p>
             listening to <a
               href="https://open.spotify.com/track/{lanyardData.spotify
@@ -37,12 +41,14 @@
             >
             by {lanyardData.spotify.artist}
           </p>
-        {:else}
+        {:else if lanyardData.activities.length}
           <p>
             playing {lanyardData.activities
               .filter((activity) => activity.type !== 4)
               .pop().name}
           </p>
+        {:else}
+          <p>doing nothing</p>
         {/if}
       </div>
     </div>
