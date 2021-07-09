@@ -21,8 +21,8 @@ h2 {
 
 hr {
   margin: 10px 0 10px 0;
-  border-top: 1px dashed var(--color);
-  border-bottom: 1px dashed var(--color);
+  border-top: 1px dashed rgb(var(--color));
+  border-bottom: 1px dashed rgb(var(--color));
 }
 
 body {

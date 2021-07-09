@@ -9,7 +9,15 @@
 
   onMount(() => {
     initLanyard(id).then((subs) => {
-      subs.subscribe((msg) => (lanyardData = msg));
+      subs.subscribe((msg) => {
+        msg &&
+          (lanyardData = {
+            spotify: msg.spotify,
+            discord_user: msg.discord_user,
+            discord_status: msg.discord_status,
+            activities: msg.activities.filter((act) => act.type !== 4),
+          });
+      });
     });
   });
 </script>
@@ -43,9 +51,7 @@
           </p>
         {:else if lanyardData.activities.length}
           <p>
-            playing {lanyardData.activities
-              .filter((activity) => activity.type !== 4)
-              .pop().name}
+            playing {lanyardData.activities.pop().name}
           </p>
         {:else}
           <p>doing nothing</p>
@@ -92,7 +98,7 @@
           cursor: pointer;
           margin: 0 10px 0 0;
           width: 50px;
-          border: rgba(black, 0.1) solid 3px;
+          border: rgba(black, 0.5) solid 3px;
           border-radius: 50%;
           animation: spin 10s linear infinite;
         }

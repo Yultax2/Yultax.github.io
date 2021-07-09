@@ -34,7 +34,7 @@ export interface LanyardData {
       large_image: string;
     };
   }[];
-  listening_to_spotify: boolean;
-  active_on_discord_mobile: boolean;
-  active_on_discord_desktop: boolean;
+  listening_to_spotify?: boolean;
+  active_on_discord_mobile?: boolean;
+  active_on_discord_desktop?: boolean;
 }

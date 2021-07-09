@@ -19,46 +19,44 @@
   export let sourceURL: string;
 </script>
 
-<main>
-  <div class="container">
-    <Navbar username={user.username} {sourceURL} />
-    <!-- Main -->
-    <div class="main">
-      <div class="me">
-        <h2>{me.header}</h2>
-        <p>{me.description}</p>
-      </div>
-      <hr />
-      <LanyardCard id={user.discordId} />
-      <hr />
-      <div class="i-know">
-        <h2>I Know</h2>
-        <div class="badges">
-          {#each badges.languages as language}
-            <Badge name={language.name} fileName={language?.fileName} />
-          {/each}
-        </div>
-      </div>
-      <hr />
-      <div class="i-love">
-        <h2>I Love</h2>
-        <div class="badges">
-          {#each badges.others as badge}
-            <Badge name={badge.name} fileName={badge?.fileName} />
-          {/each}
-        </div>
+<div class="container">
+  <Navbar username={user.username} {sourceURL} />
+
+  <!-- Main -->
+  <div class="main">
+    <div class="me">
+      <h2>{me.header}</h2>
+      <p>{me.description}</p>
+    </div>
+    <hr />
+    <LanyardCard id={user.discordId} />
+    <hr />
+    <div class="i-know">
+      <h2>I Know</h2>
+      <div class="badges">
+        {#each badges.languages as language}
+          <Badge name={language.name} fileName={language?.fileName} />
+        {/each}
       </div>
     </div>
-    <!-- Main end -->
-
-    <Footer {footer} />
+    <hr />
+    <div class="i-love">
+      <h2>I Love</h2>
+      <div class="badges">
+        {#each badges.others as badge}
+          <Badge name={badge.name} fileName={badge?.fileName} />
+        {/each}
+      </div>
+    </div>
   </div>
-</main>
+  <!-- Main end -->
+
+  <Footer {footer} />
+</div>
 
 <svelte:head>
   <title>{user.username}</title>
 
-  <!-- Meta Tags -->
   <meta property="og:title" content={user.username} />
   <meta name="title" content={user.username} />
 
@@ -66,7 +64,6 @@
   <meta name="description" content={me.metaDescription} />
 
   <meta name="theme-color" content={user.color} />
-  <!-- Meta Tags End -->
 </svelte:head>
 
 <style lang="scss">
