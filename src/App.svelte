@@ -1,8 +1,11 @@
 <script lang="ts">
   import Navbar from "./components/Navbar.svelte";
   import LanyardCard from "./components/LanyardCard.svelte";
+  import GithubCard from "./components/GithubCard.svelte";
   import Badge from "./components/Badge.svelte";
   import Footer from "./components/Footer.svelte";
+
+  import { getRepos } from "./github";
 
   export let user: { username: string; discordId: string };
   export let meDiv: {
@@ -53,6 +56,22 @@
         {/each}
       </div>
     </div>
+    <hr />
+    <div class="github">
+      <h2>Latest Github Activity</h2>
+      <div class="github-cards">
+        {#await getRepos("iamtuhana") then data}
+          {#each data as project}
+            <GithubCard
+              name={project.name}
+              description={project.description ?? "Description not specified."}
+              url={project.svn_url}
+              stars={project.stargazers_count}
+            />
+          {/each}
+        {/await}
+      </div>
+    </div>
   </div>
   <!-- Main end -->
 
@@ -95,6 +114,17 @@
         display: flex;
         flex-wrap: wrap;
 
+        justify-content: center;
+      }
+    }
+
+    div.github {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      div.github-cards {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
       }
     }

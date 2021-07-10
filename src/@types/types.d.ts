@@ -38,3 +38,13 @@ export interface LanyardData {
   active_on_discord_mobile?: boolean;
   active_on_discord_desktop?: boolean;
 }
+
+export interface GithubData {
+  name: string;
+  fullname: string;
+  description: string;
+  fork: boolean;
+  svn_url: string;
+  stargazers_count: number;
+  updated_at: string;
+}

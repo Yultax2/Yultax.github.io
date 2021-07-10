@@ -3,21 +3,18 @@
 
   import type { LanyardData } from "../@types/types";
 
-  import { onMount } from "svelte";
   import { initLanyard } from "../lanyard";
   let lanyardData: LanyardData;
 
-  onMount(() => {
-    initLanyard(id).then((subs) => {
-      subs.subscribe((msg) => {
-        msg &&
-          (lanyardData = {
-            spotify: msg.spotify,
-            discord_user: msg.discord_user,
-            discord_status: msg.discord_status,
-            activities: msg.activities.filter((act) => act.type !== 4),
-          });
-      });
+  initLanyard(id).then((subs) => {
+    subs.subscribe((msg) => {
+      msg &&
+        (lanyardData = {
+          spotify: msg.spotify,
+          discord_user: msg.discord_user,
+          discord_status: msg.discord_status,
+          activities: msg.activities.filter((act) => act.type !== 4),
+        });
     });
   });
 </script>
@@ -98,7 +95,7 @@
           cursor: pointer;
           margin: 0 10px 0 0;
           width: 50px;
-          border: rgba(black, 0.5) solid 3px;
+          border: rgba(var(--color), 0.25) solid 3px;
           border-radius: 50%;
           animation: spin 10s linear infinite;
         }
