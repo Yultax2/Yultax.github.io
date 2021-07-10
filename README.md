@@ -2,7 +2,7 @@
 
 My personal website made with [Svelte](https://svelte.dev).
 
-SVG's were downloaded and used from [simpleicons.org](https://simpleicons.org). I just changed the colors and optimized it with 3rd party tools.
+SVG's were downloaded and used from [simpleicons.org](https://simpleicons.org).
 
 ## How can i use it?
 
