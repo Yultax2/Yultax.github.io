@@ -4,18 +4,19 @@
   import Badge from "./components/Badge.svelte";
   import Footer from "./components/Footer.svelte";
 
-  export let user: { color: string; username: string; discordId: string };
-  export let me: {
-    color: string;
+  export let user: { username: string; discordId: string };
+  export let meDiv: {
     header: string;
     description: string;
     metaDescription: string;
   };
   export let badges: {
-    languages: { name: string; fileName?: string }[];
-    others: { name: string; fileName?: string }[];
+    languagesAndTools: [{ name: string; svg: string; svgColor: string }];
+    others: [{ name: string; svg: string; svgColor: string }];
   };
-  export let footer: { name: string; fileName?: string; url: string }[];
+  export let footer: [
+    { name: string; url: string; svg: string; svgColor: string }
+  ];
   export let sourceURL: string;
 </script>
 
@@ -25,8 +26,8 @@
   <!-- Main -->
   <div class="main">
     <div class="me">
-      <h2>{me.header}</h2>
-      <p>{me.description}</p>
+      <h2>{meDiv.header}</h2>
+      <p>{meDiv.description}</p>
     </div>
     <hr />
     <LanyardCard id={user.discordId} />
@@ -34,8 +35,12 @@
     <div class="i-know">
       <h2>I Know</h2>
       <div class="badges">
-        {#each badges.languages as language}
-          <Badge name={language.name} fileName={language?.fileName} />
+        {#each badges.languagesAndTools as language}
+          <Badge
+            data={language.svg}
+            name={language.name}
+            color={language.svgColor}
+          />
         {/each}
       </div>
     </div>
@@ -44,7 +49,7 @@
       <h2>I Love</h2>
       <div class="badges">
         {#each badges.others as badge}
-          <Badge name={badge.name} fileName={badge?.fileName} />
+          <Badge data={badge.svg} name={badge.name} color={badge.svgColor} />
         {/each}
       </div>
     </div>
@@ -60,10 +65,8 @@
   <meta property="og:title" content={user.username} />
   <meta name="title" content={user.username} />
 
-  <meta property="og:description" content={me.metaDescription} />
-  <meta name="description" content={me.metaDescription} />
-
-  <meta name="theme-color" content={user.color} />
+  <meta property="og:description" content={meDiv.metaDescription} />
+  <meta name="description" content={meDiv.metaDescription} />
 </svelte:head>
 
 <style lang="scss">

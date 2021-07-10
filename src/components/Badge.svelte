@@ -1,16 +1,18 @@
 <script lang="ts">
+  import Svg from "../components/Svg.svelte";
+
+  export let data: string;
   export let name: string;
-  export let fileName: string;
+  export let color: string;
 </script>
 
 <div class="badge {name.toLowerCase()}">
-  <img
-    src="./img/svg/{fileName ? fileName : name.toLowerCase()}.svg"
-    alt="{name},"
-    width="20px"
-    height="20px"
-  />
-  <p>{name}</p>
+  <svg width="20" height="20">
+    <Svg {data} {color} />
+  </svg>
+  <p>
+    {name}
+  </p>
 </div>
 
 <style lang="scss">
@@ -23,13 +25,17 @@
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
 
+    p {
+      transition: 0.5s;
+    }
+
     &:hover {
-      img {
+      svg {
         transform: rotate(10deg);
       }
     }
 
-    img {
+    svg {
       transition: 0.25s;
       padding: 5px 5px 5px 0;
     }

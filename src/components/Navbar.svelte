@@ -12,7 +12,7 @@
       This website is open source on
       <a href={sourceURL} target="_blank">GitHub</a>
     </p>
-    <p>Made with ❤ by {username}</p>
+    <p>Made with ❤ by iamtuhana</p>
   </div>
 </nav>
 
@@ -24,8 +24,8 @@
     align-items: center;
     margin: 0 0 5px 0;
     padding: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-color: rgba(var(--color), 0.1);
   }
 </style>
