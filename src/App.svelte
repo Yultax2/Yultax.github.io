@@ -60,11 +60,11 @@
     <div class="github">
       <h2>Latest Github Activity</h2>
       <div class="github-cards">
-        {#await getRepos("iamtuhana") then data}
+        {#await getRepos("Yultax") then data}
           {#each data as project}
             <GithubCard
               name={project.name}
-              description={project.description ?? "Description not specified."}
+              description={project.description ?? "No description provided."}
               url={project.svn_url}
               stars={project.stargazers_count}
             />
