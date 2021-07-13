@@ -90,12 +90,6 @@ export default {
       svgColor: "#FFFFFF",
     },
     {
-      name: "YouTube",
-      url: "https://youtube.com/c/Yultax",
-      svg: youtube,
-      svgColor: "#c4302b",
-    },
-    {
       name: "Instagram",
       url: "https://instagram.com/gizem_jrr",
       svg: instagram,
