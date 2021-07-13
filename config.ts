@@ -78,16 +78,16 @@ export default {
   },
   footer: [
     {
-      name: "Discord",
-      url: "https://discord.com/users/344941340238413825",
-      svg: discord,
-      svgColor: "#5865F2",
-    },
-    {
       name: "GitHub",
       url: "https://github.com/Yultax",
       svg: github,
       svgColor: "#FFFFFF",
+    },
+    {
+      name: "Discord",
+      url: "https://discord.com/users/344941340238413825",
+      svg: discord,
+      svgColor: "#5865F2",
     },
     {
       name: "Instagram",
