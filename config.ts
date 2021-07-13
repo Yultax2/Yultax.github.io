@@ -2,41 +2,31 @@
 import discord from "./public/img/svg/discord.svg";
 import github from "./public/img/svg/github.svg";
 import spotify from "./public/img/svg/spotify.svg";
-import twitter from "./public/img/svg/twitter.svg";
+import instagram from "./public/img/svg/instagram.svg";
 
 // Badges - Languages and Tools
 import javascript from "./public/img/svg/javascript.svg";
-import typescript from "./public/img/svg/typescript.svg";
-import deno from "./public/img/svg/deno.svg";
-import python from "./public/img/svg/python.svg";
-import svelte from "./public/img/svg/svelte.svg";
 import html from "./public/img/svg/html.svg";
-import sass from "./public/img/svg/sass.svg";
 import bash from "./public/img/svg/bash.svg";
 
 // Badges - I Love
-import linux from "./public/img/svg/linux.svg";
-import gnulinux from "./public/img/svg/gnu.svg";
-import archlinux from "./public/img/svg/archlinux.svg";
-import android from "./public/img/svg/android.svg";
-import gnome from "./public/img/svg/gnome.svg";
+import apple from "./public/img/svg/apple.svg";
 import git from "./public/img/svg/git.svg";
-import vim from "./public/img/svg/vim.svg";
-import vscode from "./public/img/svg/vscode.svg";
+import atom from "./public/img/svg/atom.svg";
 import firefox from "./public/img/svg/firefox.svg";
-import osu from "./public/img/svg/osu.svg";
+import aftereffects from "./public/img/svg/aftereffects.svg";
 
 export default {
   user: {
-    username: "iamtuhana",
-    discordId: "852582281112715284",
+    username: "Yultax",
+    discordId: "344941340238413825",
   },
   meDiv: {
-    header: "Welcome to my website! I'm Tuhana.",
+    header: "Welcome to my website! I'm Yultax.",
     description:
-      "I'm 17 years old developer from Turkey. I love cats sooooooo much 🐱🥰",
+      "I'm 16 years old ordinary weeb.",
     metaDescription:
-      "Welcome to my website! I'm Tuhana. I'm 17 years old developer from Turkey.",
+      "I'm 16 years old ordinary weeb.",
   },
   sourceURL: "https://github.com/iamtuhana/iamtuhana.github.io",
   badges: {
@@ -47,34 +37,9 @@ export default {
         svgColor: "#F7DF1E",
       },
       {
-        name: "TypeScript",
-        svg: typescript,
-        svgColor: "#3178C6",
-      },
-      {
-        name: "Deno",
-        svg: deno,
-        svgColor: "#FFFFFF",
-      },
-      {
-        name: "Python",
-        svg: python,
-        svgColor: "#3776AB",
-      },
-      {
-        name: "Svelte",
-        svg: svelte,
-        svgColor: "#FF3E00",
-      },
-      {
         name: "HTML",
         svg: html,
         svgColor: "#E34F26",
-      },
-      {
-        name: "Sass",
-        svg: sass,
-        svgColor: "#CC6699",
       },
       {
         name: "Bash Script",
@@ -84,44 +49,14 @@ export default {
     ],
     others: [
       {
-        name: "Linux",
-        svg: linux,
-        svgColor: "#FCC624",
-      },
-      {
-        name: "GNU/Linux",
-        svg: gnulinux,
-        svgColor: "#A42E2B",
-      },
-      {
-        name: "Arch Linux",
-        svg: archlinux,
-        svgColor: "#1793D1",
-      },
-      {
-        name: "Android",
-        svg: android,
-        svgColor: "#3DDC84",
-      },
-      {
-        name: "GNOME",
-        svg: gnome,
-        svgColor: "#4A86CF",
-      },
-      {
         name: "Git",
         svg: git,
         svgColor: "#F05032",
       },
       {
-        name: "Vim",
-        svg: vim,
-        svgColor: "#019733",
-      },
-      {
-        name: "Visual Studio Code",
-        svg: vscode,
-        svgColor: "#007ACC",
+        name: "Atom",
+        svg: atom,
+        svgColor: "#3bb17b",
       },
       {
         name: "Firefox",
@@ -129,10 +64,16 @@ export default {
         svgColor: "#FF7139",
       },
       {
-        name: "Osu!",
-        svg: osu,
-        svgColor: "#FF66AA",
+        name: "macOS",
+        svg: apple,
+        svgColor: "#FFFFFF",
       },
+      {
+        name: "After Effects",
+        svg: aftereffects,
+        svgColor: "#00005a",
+      },
+
     ],
   },
   footer: [
@@ -155,10 +96,10 @@ export default {
       svgColor: "#1ED760",
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/iamtuhana",
-      svg: twitter,
-      svgColor: "#1DA1F2",
+      name: "Instagram",
+      url: "https://instagram.com/gizem_jrr",
+      svg: instagram,
+      svgColor: "#FFFFFF",
     },
   ],
 };
