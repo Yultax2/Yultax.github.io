@@ -1,7 +1,7 @@
 // Footer SVG's
 import discord from "./public/img/svg/discord.svg";
 import github from "./public/img/svg/github.svg";
-import spotify from "./public/img/svg/spotify.svg";
+import youtube from "./public/img/svg/youtube.svg";
 import instagram from "./public/img/svg/instagram.svg";
 
 // Badges - Languages and Tools
@@ -79,21 +79,21 @@ export default {
   footer: [
     {
       name: "Discord",
-      url: "https://discord.com/users/852582281112715284",
+      url: "https://discord.com/users/344941340238413825",
       svg: discord,
       svgColor: "#5865F2",
     },
     {
-      name: "Github",
-      url: "https://github.com/iamtuhana",
+      name: "GitHub",
+      url: "https://github.com/Yultax",
       svg: github,
       svgColor: "#FFFFFF",
     },
     {
-      name: "Spotify",
-      url: "https://open.spotify.com/user/4aiw41dacy2h3arnqb6jug6iu",
-      svg: spotify,
-      svgColor: "#1ED760",
+      name: "YouTube",
+      url: "https://youtube.com/c/Yultax",
+      svg: youtube,
+      svgColor: "#c4302b",
     },
     {
       name: "Instagram",
