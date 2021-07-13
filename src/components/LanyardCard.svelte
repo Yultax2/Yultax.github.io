@@ -22,7 +22,7 @@
 {#if lanyardData}
   <div class="card">
     <img
-      src={`https://cdn.discordapp.com/avatars/${lanyardData.discord_user.id}/${lanyardData.discord_user.avatar}.png?size=1024`}
+      src={`https://cdn.discordapp.com/avatars/${lanyardData.discord_user.id}/${lanyardData.discord_user.avatar}.gif?size=1024`}
       alt="Avatar"
       width="156px"
       height="156px"
