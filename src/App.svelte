@@ -78,16 +78,6 @@
   <Footer {footer} />
 </div>
 
-<svelte:head>
-  <title>{user.username}</title>
-
-  <meta property="og:title" content={user.username} />
-  <meta name="title" content={user.username} />
-
-  <meta property="og:description" content={meDiv.metaDescription} />
-  <meta name="description" content={meDiv.metaDescription} />
-</svelte:head>
-
 <style lang="scss">
   div.container {
     margin: 5px 200px 5px 200px;
