@@ -28,7 +28,7 @@ export default {
     metaDescription:
       "I'm 16 years old ordinary weeb.",
   },
-  sourceURL: "https://github.com/iamtuhana/iamtuhana.github.io",
+  sourceURL: "https://github.com/Yultax/Yultax.github.io",
   badges: {
     languagesAndTools: [
       {
